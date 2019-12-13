@@ -7,10 +7,31 @@ def gerar_texto(estrutura):
     informações relacionadas que o usuário deve saber.
     """
 
-    # TODO
+    def texto_comp(comp, num):
+        """ Gera o texto de um componente """
+
+        def texto_clique(clique, num):
+            """ Gera o texto de um clique """
+
+            return """
+              --Clique: {pessoas}
+                Indice de extremismo: {indice}
+            """.format(
+                pessoas = ', '.join(clique.nodes),
+                indice = 'TO-DO',
+            )
+        
+        return """
+            Componente:
+                {cliques}
+        """.format(
+            cliques = "".join([texto_clique(clq, -1) for clq in comp["clique_list"]])
+        )
+
+    return "\n\n".join([texto_comp(cp, -1) for cp in estrutura])
 
     # Exemplo de retorno:
-    return """
+    """
     O grafo social fornecido tem 3 componentes conexos.
 
     Componente 1 (18 pessoas, 22 conexoes, 2 cliques relevantes):
