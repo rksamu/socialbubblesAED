@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import random as random
+import os
 
 print("test")
 
@@ -23,10 +24,34 @@ def gen_social_graph(size = 12, amount_connections = 20):
     for i in range(amount_connections):
         pair = random.choices(list(G.nodes), k=2)
         G.add_edge(pair[0], pair[1])
-    
+
     return G
 
+def gen_list_conn_comp():
+    i = 1
+    list_subg = []
+    list_conn = list(nx.connected_components(G))
+    print(list_conn)
+    _del_png()
+    for compo in list_conn:
+        print(compo)
+        if nx.is_connected(G.subgraph(compo)):
+            nx.draw(G.subgraph(compo), with_labels = True, font_weight='bold')
+            plt.savefig("subg"+ str(i) +".png")
+            plt.close()
+            i = i+1
+            list_subg.append(G.subgraph(compo))
+    return list_subg
+
+def _del_png():
+    dir_name = "E:/PycharmProjects/socialbubblesAED\src"
+    test = os.listdir(dir_name)
+
+    for item in test:
+        if item.endswith(".png"):
+            os.remove(os.path.join(dir_name, item))
 # Abrir visualizacao interativa com o matplotlib
 G = gen_social_graph(12, 10)
+list = gen_list_conn_comp()
 nx.draw(G, with_labels = True, font_weight='bold')
 plt.show()
