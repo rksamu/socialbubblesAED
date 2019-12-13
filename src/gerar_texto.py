@@ -8,4 +8,30 @@ def gerar_texto(estrutura):
     """
 
     # TODO
-    return ""
+
+    # Exemplo de retorno:
+    return """
+    O grafo social fornecido tem 3 componentes conexos.
+
+    Componente 1 (18 pessoas, 22 conexoes, 2 cliques relevantes):
+        * Clique 1 (3 pessoas):
+          Maria, Ana, Pedro
+          Indice de extremismo: 0.79
+
+        * Clique 2 (3 pessoas):
+          Ana, Marcio, Lucas
+          Indice de extremismo: -0.69
+
+    Componente 2 (12 pessoas, 15 conexoes, 3 cliques relevantes):
+        * Clique 1 (5 pessoas):
+          Luiza, Abraao, Judite, Vladmir, Joao
+          Indice de extremismo: 0.98
+
+        * Clique 2 (3 pessoas):
+          Fabio, Marcone, Leo
+          Indice de extremismo: -0.7
+
+        * Clique 3 (3 pessoas):
+          John, Smith, Bob
+          Indice de extremismo: -0.5
+    """
