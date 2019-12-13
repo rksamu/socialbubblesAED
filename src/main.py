@@ -1,6 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
-from gerar_grafo_social import gerar_grafo_social
+from grafo_social_aleatorio import grafo_social_aleatorio
 from achar_cliques_relevantes import achar_cliques_relevantes
 from visualizar import visualizar
 from gerar_texto import gerar_texto
@@ -43,7 +43,7 @@ def processar_grafo_social(grafo):
 # Teste:
 v = visualizar # atalho para a funcao visualizar
 
-soc = gerar_grafo_social()
+soc = grafo_social_aleatorio()
 v(soc)
 
 proc = processar_grafo_social(soc)
