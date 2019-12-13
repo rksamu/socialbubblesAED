@@ -44,10 +44,19 @@ def processar_grafo_social(grafo):
 # Teste:
 v = visualizar # atalho para a funcao visualizar
 
+# Grafo aleatorio:
 soc = grafo_social_aleatorio(10, 60)
+
+# Grafo manual:
+#soc = gerar_grafo_manual()
+
+# Mostrar grafo social inteiro:
 visualizar([soc])
 
 proc = processar_grafo_social(soc)
+
+# Mostrar texto:
+print(gerar_texto(proc))
 
 # Mostrar figuras dos cliques de cada componente:
 for componente in proc:
