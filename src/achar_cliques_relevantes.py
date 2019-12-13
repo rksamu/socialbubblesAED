@@ -9,10 +9,11 @@ def achar_cliques_relevantes(grafo, n):
     """
     # TODO
     list_cliques = []
-    list_find_cliques = list(nx.find_cliques(grafo))
-    for cliq in list_find_cliques:
-        S = grafo.subgraph(cliq)
-        print(S)
-        if nx.number_of_nodes(S) >= n:
-            list_cliques.append(S)
+
+    for cliq in list(nx.find_cliques(grafo)):
+        sub = grafo.subgraph(cliq)
+
+        if nx.number_of_nodes(sub) >= n:
+            list_cliques.append(sub)
+    
     return list_cliques
