@@ -9,7 +9,17 @@ def processar_grafo_social(grafo):
     """
     Dado um grafo social, retorna uma estrutura no seguinte formato:
 
-    [(Componente, [CliqueRel, ...]), ...]
+    [
+        {
+            "componente": Componente,
+            "clique_list": [CliqueRel, ...]
+        },
+        ...
+    ]
+
+    (Isso é uma lista de dicionarios)
+
+    Componente = Um componente conexo do grafo fornecido pelo argumento
 
     CliqueRel = Clique maximal com pelo menos N nós (N é um inteiro
                 maior que ou igual a 3, ainda a ser decidido)
@@ -18,10 +28,22 @@ def processar_grafo_social(grafo):
     # Gerar uma lista de grafos onde cada um é um componente conexo
     comps = [grafo.subgraph(c).copy() for c in nx.connected_components(grafo)]
 
-    # TODO: O resto
+    resultado = []
+    for comp in comps:
+        resultado.append(
+            {
+                "componente": comp,
+                "clique_list": achar_cliques_relevantes(comp, 3),
+            }
+        )
 
-    return []
+    return resultado
 
 
 # Teste:
-visualizar(gerar_grafo_social(20, 18))
+v = visualizar # atalho para a funcao visualizar
+
+soc = gerar_grafo_social()
+v(soc)
+
+proc = processar_grafo_social(soc)

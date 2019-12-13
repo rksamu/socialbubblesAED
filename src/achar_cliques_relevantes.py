@@ -9,4 +9,6 @@ def achar_cliques_relevantes(grafo, n):
     """
 
     # TODO
-    return []
+
+    # Por enquanto retorna essa lista de grafos qualquer, so pra poder testar as outras funcoes:
+    return [nx.petersen_graph(), nx.tutte_graph(), nx.tetrahedral_graph()]
