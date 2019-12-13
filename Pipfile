@@ -9,7 +9,6 @@ pylint = "*"
 [packages]
 networkx = "*"
 matplotlib = "*"
-pydot = "*"
 
 [requires]
 python_version = "3.7"
