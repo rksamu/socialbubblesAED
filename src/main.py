@@ -43,7 +43,10 @@ def processar_grafo_social(grafo):
 # Teste:
 v = visualizar # atalho para a funcao visualizar
 
-soc = gerar_grafo_social()
+soc = gerar_grafo_social(10, 60)
 v(soc)
 
 proc = processar_grafo_social(soc)
+
+for clique in proc[0]["clique_list"]:
+    v(clique)
