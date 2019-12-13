@@ -45,10 +45,10 @@ def processar_grafo_social(grafo):
 v = visualizar # atalho para a funcao visualizar
 
 soc = grafo_social_aleatorio(10, 60)
-v([soc])
+visualizar([soc])
 
 proc = processar_grafo_social(soc)
 
-#for clique in proc[0]["clique_list"]:
-#    v([clique])
-v(proc[0]["clique_list"])
+# Mostrar figuras dos cliques de cada componente:
+for componente in proc:
+    visualizar(componente["clique_list"])
