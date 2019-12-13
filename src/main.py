@@ -28,4 +28,6 @@ def visualizar(grafo):
     nx.draw(grafo, with_labels = True, font_weight='bold')
     plt.show()
 
+
+# Teste:
 visualizar(gerar_grafo_social(20, 18))
