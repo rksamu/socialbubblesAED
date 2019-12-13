@@ -4,6 +4,7 @@ from grafo_social_aleatorio import grafo_social_aleatorio
 from achar_cliques_relevantes import achar_cliques_relevantes
 from visualizar import visualizar
 from gerar_texto import gerar_texto
+from gerar_grafo_manual import gerar_grafo_manual
 
 def processar_grafo_social(grafo):
     """
