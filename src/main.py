@@ -28,7 +28,9 @@ def visualizar(grafo):
     labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
                     for node_name in grafo.nodes }
     
-    nx.draw(grafo, with_labels = True, labels=labels_dict)
+    nx.draw(grafo, with_labels = True, labels=labels_dict,
+            node_color= '#aaaaff',
+            font_size = 9, font_weight="bold")
     plt.show()
 
 
