@@ -1,10 +1,12 @@
 import networkx as nx
 import random as random
 
-def gerar_grafo_manual(tamanho = int(input("Quantas pessoas serão cadastradas na análise? "))):
+def gerar_grafo_manual():
     """
     Gera um grafo social manualmente.
     """
+
+    tamanho = int(input("Quantas pessoas serão cadastradas na análise? "))
     qtd_conexoes = int(tamanho * 1.1)
     
     # Criar grafo
