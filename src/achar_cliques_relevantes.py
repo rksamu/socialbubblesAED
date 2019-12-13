@@ -7,8 +7,12 @@ def achar_cliques_relevantes(grafo, n):
     Um clique relevante é um clique maximal com pelo menos n nós
     (n sendo um inteiro maior que ou igual a 3).
     """
-
     # TODO
-
-    # Por enquanto retorna essa lista de grafos qualquer, so pra poder testar as outras funcoes:
-    return [nx.petersen_graph(), nx.tutte_graph(), nx.tetrahedral_graph()]
+    list_cliques = []
+    list_find_cliques = list(nx.find_cliques(grafo))
+    for cliq in list_find_cliques:
+        S = grafo.subgraph(cliq)
+        print(S)
+        if nx.number_of_nodes(S) >= n:
+            list_cliques.append(S)
+    return list_cliques
