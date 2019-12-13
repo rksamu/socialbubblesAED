@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from gerar_grafo_social import gerar_grafo_social
 from achar_cliques_relevantes import achar_cliques_relevantes
 from visualizar import visualizar
+from gerar_texto import gerar_texto
 
 def processar_grafo_social(grafo):
     """
