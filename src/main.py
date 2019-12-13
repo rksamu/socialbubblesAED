@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 from gerar_grafo_social import gerar_grafo_social
+from achar_cliques_relevantes import achar_cliques_relevantes
 
 
 
