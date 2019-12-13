@@ -15,6 +15,10 @@ def gen_social_graph(size = 12, amount_connections = 20):
     # Add vertices
     G.add_nodes_from(random.choices(nomes_de_pessoas, k=size))
 
+    # Add opinioes
+    for node in G.nodes:
+        G.nodes[node]['opinion'] = random.uniform(-1.0, 1.0)
+
     # Add arestas
     for i in range(amount_connections):
         pair = random.choices(list(G.nodes), k=2)
@@ -23,5 +27,6 @@ def gen_social_graph(size = 12, amount_connections = 20):
     return G
 
 # Abrir visualizacao interativa com o matplotlib
-nx.draw(gen_social_graph(12, 10), with_labels = True, font_weight='bold')
+G = gen_social_graph(12, 10)
+nx.draw(G, with_labels = True, font_weight='bold')
 plt.show()
