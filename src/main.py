@@ -24,8 +24,11 @@ def visualizar(grafo):
     """
     Abre uma visualizacao interativa do grafo com o matplotlib
     """
-    # TODO: Mostrar opinioes
-    nx.draw(grafo, with_labels = True, font_weight='bold')
+    # Lista de textos dos nós
+    labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
+                    for node_name in grafo.nodes }
+    
+    nx.draw(grafo, with_labels = True, labels=labels_dict)
     plt.show()
 
 
