@@ -21,10 +21,11 @@ def visualizar(grafos):
         # Cria axes
         plt.subplot(qtd_plots, qtd_plots, i+1)
 
-        nx.draw(
+        nx.draw_networkx(
             grafo,
             with_labels = True, labels = labels_dict,
-            node_color = '#aaaaff',
+            node_color = '#aaaaff', node_size = 50,
+            edge_color = '#888888',
             font_size = 9, font_weight = "bold",
         )
 
