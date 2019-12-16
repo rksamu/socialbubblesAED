@@ -50,14 +50,14 @@ soc = grafo_social_aleatorio(10, 60)
 # Grafo manual:
 #soc = gerar_grafo_manual()
 
-# Mostrar grafo social inteiro:
-visualizar([soc])
-
 proc = processar_grafo_social(soc)
+
+# Mostrar grafo social inteiro:
+visualizar([soc], titulo=f'Grafo Social ({soc.number_of_nodes()} pessoas, {len(proc)} componentes)')
 
 # Mostrar texto:
 print(gerar_texto(proc))
 
 # Mostrar figuras dos cliques de cada componente:
-for componente in proc:
-    visualizar(componente["clique_list"])
+for i, componente in enumerate(proc):
+    visualizar(componente["clique_list"], titulo=f'Cliques do componente {i+1}')

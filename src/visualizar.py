@@ -2,7 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from math import sqrt, ceil
 
-def visualizar(grafos):
+def visualizar(grafos, titulo = ''):
     """
     Abre uma visualizacao interativa do matplotlib da lista de grafos fornecida.
     """
@@ -20,6 +20,9 @@ def visualizar(grafos):
         
         # Cria axes
         plt.subplot(qtd_plots, qtd_plots, i+1)
+
+        plt.suptitle(titulo)
+
 
         nx.draw_networkx(
             grafo,
