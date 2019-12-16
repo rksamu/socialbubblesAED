@@ -4,7 +4,7 @@ from math import sqrt, ceil
 
 def visualizar(grafos):
     """
-    Abre uma visualizacao interativa da lista de grafos fornecida, com o matplotlib
+    Abre uma visualizacao interativa do matplotlib da lista de grafos fornecida.
     """
     # TODO: Colorir os nós de acordo com a opinião
     # TODO: Opção de fornecer um subgrafo para destacar
@@ -18,6 +18,7 @@ def visualizar(grafos):
         labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
                         for node_name in grafo.nodes }
         
+        # Cria axes
         plt.subplot(qtd_plots, qtd_plots, i+1)
 
         nx.draw(
