@@ -7,52 +7,21 @@ def gerar_texto(estrutura):
     informações relacionadas que o usuário deve saber.
     """
 
-    def texto_comp(comp, num):
-        """ Gera o texto de um componente """
-
-        def texto_clique(clique, num):
-            """ Gera o texto de um clique """
-
-            return """
-              --Clique: {pessoas}
-                Indice de extremismo: {indice}
-            """.format(
-                pessoas = ', '.join(clique.nodes),
-                indice = 'TO-DO',
-            )
+    def texto_comp(estrutura, index):
+        comp = estrutura[index]["componente"]
+        clique_list = estrutura[index]["clique_list"]
         
-        return """
-            Componente:
-                {cliques}
-        """.format(
-            cliques = "".join([texto_clique(clq, -1) for clq in comp["clique_list"]])
+        return (
+            f"  * Componente {index+1} ({comp.number_of_nodes()} pessoas, {comp.number_of_edges()} conexões):\n"
+            +
+            "".join([f"    - Clique: {clq.nodes}\n" for clq in clique_list])
         )
 
-    return "\n\n".join([texto_comp(cp, -1) for cp in estrutura])
+    qtd_de_pessoas = sum([comp["componente"].number_of_nodes() for comp in estrutura])
 
-    # Exemplo de retorno:
-    """
-    O grafo social fornecido tem 3 componentes conexos.
+    return (
+        f"\n\nO grafo social tem {qtd_de_pessoas} pessoas e {len(estrutura)} componentes conexos.\n\n"
+        +
+        "".join([texto_comp(estrutura, i) for i in range(len(estrutura))])
+    )
 
-    Componente 1 (18 pessoas, 22 conexoes, 2 cliques relevantes):
-        * Clique 1 (3 pessoas):
-          Maria, Ana, Pedro
-          Indice de extremismo: 0.79
-
-        * Clique 2 (3 pessoas):
-          Ana, Marcio, Lucas
-          Indice de extremismo: -0.69
-
-    Componente 2 (12 pessoas, 15 conexoes, 3 cliques relevantes):
-        * Clique 1 (5 pessoas):
-          Luiza, Abraao, Judite, Vladmir, Joao
-          Indice de extremismo: 0.98
-
-        * Clique 2 (3 pessoas):
-          Fabio, Marcone, Leo
-          Indice de extremismo: -0.7
-
-        * Clique 3 (3 pessoas):
-          John, Smith, Bob
-          Indice de extremismo: -0.5
-    """
