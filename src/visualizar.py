@@ -20,8 +20,11 @@ def visualizar(grafos):
         
         plt.subplot(qtd_plots, qtd_plots, i+1)
 
-        nx.draw(grafo, with_labels = True, labels=labels_dict,
-                node_color= '#aaaaff',
-                font_size = 9, font_weight="bold")
+        nx.draw(
+            grafo,
+            with_labels = True, labels = labels_dict,
+            node_color = '#aaaaff',
+            font_size = 9, font_weight = "bold",
+        )
 
     plt.show()
