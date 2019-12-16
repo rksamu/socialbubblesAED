@@ -22,13 +22,12 @@ def visualizar(grafos, titulo = ''):
 
         plt.suptitle(titulo)
 
-
         nx.draw_networkx(
             grafo,
             with_labels = True, labels = labels_dict,
             node_color = '#aaaaff', node_size = 50,
             edge_color = '#888888',
-            font_size = 9, font_weight = "bold",
+            font_size = 8, font_weight = "bold",
         )
 
     plt.show()
