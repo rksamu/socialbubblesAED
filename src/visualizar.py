@@ -9,17 +9,16 @@ def visualizar(grafos, titulo = ''):
     # TODO: Colorir os nós de acordo com a opinião
     # TODO: Opção de fornecer um subgrafo para destacar
 
-    # Determinar a quantidade de plots necessaria
-    qtd_plots = ceil(sqrt(len(grafos)))
+    # Determina a quantidade de plots necessaria
+    qtd_cols_e_lins = ceil(sqrt(len(grafos)))
 
-    for i in range(len(grafos)):
-        grafo = grafos[i]
+    for i, grafo in enumerate(grafos):
         # Lista de textos dos nós
         labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
                         for node_name in grafo.nodes }
         
         # Cria axes
-        plt.subplot(qtd_plots, qtd_plots, i+1)
+        plt.subplot(qtd_cols_e_lins, qtd_cols_e_lins, i+1)
 
         plt.suptitle(titulo)
 
