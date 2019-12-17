@@ -12,19 +12,21 @@ def visualizar(grafos, titulo = ''):
     # Determina a quantidade de plots necessaria
     qtd_cols_e_lins = ceil(sqrt(len(grafos)))
 
+    # Título mostrado no topo da figura
+    plt.suptitle(titulo)
+
     for i, grafo in enumerate(grafos):
-        # Lista de textos dos nós
-        labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
-                        for node_name in grafo.nodes }
-        
         # Cria axes
         plt.subplot(qtd_cols_e_lins, qtd_cols_e_lins, i+1)
 
-        plt.suptitle(titulo)
 
         # Reduz um pouco o zoom para os nomes das pessoas não ficarem
         # de fora quando vários grafos são visualizados
         plt.margins(0.2)
+
+        # Lista de textos dos nós
+        labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
+                        for node_name in grafo.nodes }
 
         nx.draw_networkx(
             grafo,
