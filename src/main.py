@@ -45,7 +45,7 @@ def processar_grafo_social(grafo):
 v = visualizar # atalho para a funcao visualizar
 
 # Grafo aleatorio:
-soc = grafo_social_aleatorio(30, 60)
+soc = grafo_social_aleatorio()
 
 # Grafo manual:
 #soc = gerar_grafo_manual()
