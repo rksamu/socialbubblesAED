@@ -11,7 +11,7 @@ def _basico(tamanho = 12, qtd_conexoes = 10):
     G = nx.Graph()
 
     # Add vertices
-    G.add_nodes_from(random.choices(lista_de_nomes, k=tamanho))
+    G.add_nodes_from(random.sample(lista_de_nomes, k=tamanho))
 
     # Add opinioes
     for node in G.nodes:
@@ -19,9 +19,8 @@ def _basico(tamanho = 12, qtd_conexoes = 10):
 
     # Add arestas
     for i in range(qtd_conexoes):
-        # Escolher um par aleatorio de vertices:
-        par = random.choices(list(G.nodes), k=2)
-        G.add_edge(par[0], par[1])
+        # Adicionar um par aleatório de vertices dentre as que ainda não existem:
+        G.add_edge(*random.choice(list(nx.complement(G).edges)))
     
     return G
 
