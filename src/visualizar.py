@@ -34,8 +34,10 @@ def visualizar(grafos, titulo = ''):
         plt.margins(0.2)
 
         # Lista de textos dos nós
-        labels_dict = { node_name: "{}\n{:.2f}".format(node_name, grafo.nodes[node_name]["opinion"])
-                        for node_name in grafo.nodes }
+        labels_dict = {
+            node_name: f"{node_name}\n{grafo.nodes[node_name]['opinion']:.2f}"
+            for node_name in grafo.nodes
+        }
 
         nx.draw_networkx(
             grafo,
