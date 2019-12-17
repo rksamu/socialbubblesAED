@@ -29,7 +29,9 @@ def visualizar(grafos, titulo = ''):
         nx.draw_networkx(
             grafo,
             with_labels = True, labels = labels_dict,
-            node_color = '#aaaaff', node_size = 50,
+            node_color = [grafo.nodes[node]["opinion"] for node in grafo.nodes],
+            cmap = plt.cm.get_cmap('coolwarm'), vmin = -1.0, vmax = 1.0,
+            node_size = 50,
             edge_color = '#888888',
             font_size = 8, font_weight = "bold",
         )
