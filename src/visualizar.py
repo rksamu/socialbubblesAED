@@ -17,17 +17,19 @@ def visualizar(grafos, titulo = ''):
     # Título mostrado no topo da figura
     plt.suptitle(titulo, linespacing = 0.9)
 
-    for i, grafo in enumerate(grafos):
+    def achar_indice_extremismo(grafo):
+        return (
+            sum([grafo.nodes[node]["opinion"] for node in grafo.nodes])
+            / grafo.number_of_nodes()
+        )
+
+    for i, grafo in enumerate(sorted(grafos, key = achar_indice_extremismo)):
         # Cria axes
         plt.subplot(qtd_cols_e_lins, qtd_cols_e_lins, i+1)
 
         # Define titulo dos cliques, com indice de extremismo
         if len(grafos) > 1:
-            indice_de_extremismo = (
-                sum([grafo.nodes[node]["opinion"] for node in grafo.nodes])
-                / grafo.number_of_nodes()
-            )
-            plt.title(fr'$i_x$: {indice_de_extremismo:.2f}', pad = 1.5, fontsize = 10)
+            plt.title(fr'$i_x$: {achar_indice_extremismo(grafo):.2f}', pad = 1.5, fontsize = 10)
 
         # Reduz um pouco o zoom para os nomes das pessoas não ficarem
         # de fora quando vários grafos são visualizados
