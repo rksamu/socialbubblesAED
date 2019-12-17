@@ -45,7 +45,7 @@ def processar_grafo_social(grafo):
 v = visualizar # atalho para a funcao visualizar
 
 # Grafo aleatorio:
-soc = grafo_social_aleatorio(10, 60)
+soc = grafo_social_aleatorio(30, 60)
 
 # Grafo manual:
 #soc = gerar_grafo_manual()
@@ -53,11 +53,14 @@ soc = grafo_social_aleatorio(10, 60)
 proc = processar_grafo_social(soc)
 
 # Mostrar grafo social inteiro:
-visualizar([soc], titulo=f'Grafo Social ({soc.number_of_nodes()} pessoas, {len(proc)} componentes)')
+visualizar([soc], titulo=f'Grafo Social\n({soc.number_of_nodes()} pessoas, {len(proc)} componentes)')
 
 # Mostrar texto:
 print(gerar_texto(proc))
 
 # Mostrar figuras dos cliques de cada componente:
 for i, componente in enumerate(proc):
-    visualizar(componente["clique_list"], titulo=f'Cliques do componente {i+1}')
+    visualizar(
+        componente["clique_list"],
+        titulo = f'Cliques do Componente {i+1}\n' + r'($i_x$ = Índice de Extremismo)',
+    )
