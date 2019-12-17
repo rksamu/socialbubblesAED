@@ -5,6 +5,8 @@ from math import sqrt, ceil
 def visualizar(grafos, titulo = ''):
     """
     Abre uma visualizacao interativa do matplotlib da lista de grafos fornecida.
+    Se a lista tiver apenas 1 grafo, mostra como o grafo social,
+    caso contrário como uma lista de cliques.
     """
     # TODO: Colorir os nós de acordo com a opinião
     # TODO: Opção de fornecer um subgrafo para destacar
