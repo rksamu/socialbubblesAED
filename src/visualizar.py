@@ -22,6 +22,10 @@ def visualizar(grafos, titulo = ''):
 
         plt.suptitle(titulo)
 
+        # Reduz um pouco o zoom para os nomes das pessoas não ficarem
+        # de fora quando vários grafos são visualizados
+        plt.margins(0.2)
+
         nx.draw_networkx(
             grafo,
             with_labels = True, labels = labels_dict,
