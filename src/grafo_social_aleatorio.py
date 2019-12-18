@@ -13,6 +13,20 @@ def _add_opinioes_basico(G):
 
     return G
 
+def _add_nomes(G):
+    """
+    Converte os nós do grafo G para strings que são nomes aleatórios de pessoas.
+    Modifica o grafo passado como argumento.
+    """
+    nx.relabel_nodes(G, {
+        t[0]: t[1] for t in zip(
+            G.nodes,
+            random.sample(lista_de_nomes, k=G.number_of_nodes())
+        )
+    }, copy=False)
+
+    return G
+
 def _basico(tamanho = 12, qtd_conexoes = 10):
     """
     As arestas são aleatoriamente escolhidas dentre todas as arestas possíveis.
@@ -37,4 +51,4 @@ def _basico(tamanho = 12, qtd_conexoes = 10):
 def grafo_social_aleatorio():
     #return _basico()
 
-    return _add_opinioes_basico(nx.planted_partition_graph(2, 15, 0.3, 0.0))
+    return _add_nomes(_add_opinioes_basico(nx.planted_partition_graph(2, 15, 0.3, 0.0)))
