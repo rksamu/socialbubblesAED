@@ -18,10 +18,13 @@ def visualizar(grafos, titulo = ''):
     plt.suptitle(titulo, linespacing = 0.9)
 
     def achar_indice_extremismo(grafo):
-        return (
-            sum([grafo.nodes[node]["opinion"] for node in grafo.nodes])
-            / grafo.number_of_nodes()
-        )
+        try:
+            return (
+                sum([grafo.nodes[node]["opinion"] for node in grafo.nodes])
+                / grafo.number_of_nodes()
+            )
+        except ZeroDivisionError:
+            return 0.0
 
     for i, grafo in enumerate(sorted(grafos, key = achar_indice_extremismo)):
         # Cria axes
